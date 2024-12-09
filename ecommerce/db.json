@@ -1,0 +1,72 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "title": "Product 1",
+        "description": "Description of Product 1",
+        "price": 100,
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.sony.co.in%2Fheadphones%2Fproducts%2Fwh-ch520&psig=AOvVaw0Z4xucoQd8pN2YXKnwbZCv&ust=1733816242721000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCG-vuWmooDFQAAAAAdAAAAABAI"
+      },
+      {
+        "id": 2,
+        "title": "Product 2",
+        "description": "Description of Product 2",
+        "price": 200,
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.in%2FNoise-Launched-Wireless-Headphones-Playtime%2Fdp%2FB0CY2377YW&psig=AOvVaw0Z4xucoQd8pN2YXKnwbZCv&ust=1733816242721000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCG-vuWmooDFQAAAAAdAAAAABAE"
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "email": "test@test.com",
+        "password": "admin",
+        "city": "New York",
+        "state": "NY",
+        "gender": "Male",
+        "phoneNumber": "1234567890"
+      },
+      {
+        "id": "5f71",
+        "firstname": "",
+        "lastname": "",
+        "email": "demo@demo.com",
+        "password": "admin",
+        "confirmPassword": "admin",
+        "city": "",
+        "state": "",
+        "gender": "",
+        "phoneNumber": ""
+      },
+      {
+        "id": "6eff",
+        "firstname": "",
+        "lastname": "",
+        "email": "testdata@test.com",
+        "password": "admin",
+        "confirmPassword": "admin",
+        "city": "",
+        "state": "",
+        "phoneNumber": ""
+      },
+      {
+        "id": "cce5",
+        "firstname": "",
+        "lastname": "",
+        "email": "test3@test.com",
+        "password": "admin",
+        "confirmPassword": "admin",
+        "city": "",
+        "state": "",
+        "phoneNumber": ""
+      }
+    ],
+    "cart": [
+      {
+        "id": 1,
+        "productId": 1,
+        "quantity": 2
+      }
+    ]
+  }
