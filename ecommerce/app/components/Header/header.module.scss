@@ -1,0 +1,131 @@
+.navbarWrapper {
+    background-color: #f9fafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+  }
+  
+  .navbarWrapperData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logoWrapper {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .navUl {
+    text-align: left;
+    gap: 16px;
+    list-style: none;
+    background: #757575;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 50px !important;
+  }
+  .liList {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .liList:hover {
+    background-color: #dfe6f0;
+  }
+  
+  .navActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .actionButton {
+    background-color: transparent;
+    border: 0;
+  }
+  .searchBarData i{
+    padding-left: 10px;
+  }
+  
+  .logoutButton {
+    border: 0;
+    background-color: transparent !important;
+  }
+
+  .searchBar {
+    width: auto;
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px 5px 5px 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+ .searchBar:focus-visible{
+  outline: none;
+ }
+  .closeIcon{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: color 0.2s;
+    z-index: 1;
+  }
+  .navUlWrapper {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 33%;
+    height: 100%;
+    background: #757575;
+    color: #fff;
+    z-index: 10;
+    transition: left 0.3s ease;
+    display: flex;
+    justify-content: center;
+   
+    .navUl {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+  
+      .liList {
+        padding: 12px 16px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #dfe6f0;
+        }
+      }
+    }
+  
+    .closeIcon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+  
+  .openMenu {
+    left: 0;
+  }
+  
+  .closeMenu {
+    left: -100%;
+  }
+  .toggleIcon{
+    cursor: pointer;
+  }

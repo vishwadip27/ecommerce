@@ -1,16 +1,17 @@
-import styles from "./page.module.css";
-import About from "./components/About/page";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Login from "./login/page";
+// app/page.tsx
+
+import styles from './page.module.css';
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Header />
-      <Login />
-      <About />
-      <Footer />
+      <section className={styles.banner}>
+        <div className={styles.bannerContent}>
+          <h1>Welcome to Our Shop!</h1>
+          <p>Discover the best products for your needs</p>
+          <button className={styles.shopNowBtn}>Shop Now</button>
+        </div>
+      </section>
     </div>
   );
 }

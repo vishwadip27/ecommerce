@@ -1,4 +1,4 @@
-import { SET_FORM_DATA, RESET_FORM_DATA, SET_ERROR, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from '../actions/authTypes';
+import { SET_FORM_DATA, RESET_FORM_DATA, SET_ERROR, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, CLEAR_ERROR } from '../actions/authTypes';
 
 interface AuthState {
   formData: {
@@ -24,55 +24,44 @@ const initialState: AuthState = {
     phoneNumber: '',
   },
   error: '',
-  // Get initial state from localStorage if available
-  isLoggedIn: typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true',
-  user: typeof window !== 'undefined' && localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : null,
+  isLoggedIn: false, 
+  user: null,       
 };
 
 const authReducer = (state = initialState, action: any): AuthState => {
   switch (action.type) {
     case SET_FORM_DATA:
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-          ...action.payload,
-        },
-      };
-    case RESET_FORM_DATA:
-      return initialState;
+      return {...state, formData: { ...state.formData, ...action.payload } };
+      case RESET_FORM_DATA:
+        return {
+          ...state,
+          formData: { ...initialState.formData },
+          error: '',
+        };
     case SET_ERROR:
-      return {
-        ...state,
-        error: action.payload,
-      };
+      return { ...state, error: action.payload};
+    case CLEAR_ERROR:
+      return { ...state, error: '' };
     case LOGIN_SUCCESS:
-      // Persist the login status and user to localStorage
       if (typeof window !== 'undefined') {
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('user', JSON.stringify(action.payload)); // Store user data in localStorage
+        localStorage.setItem('user', JSON.stringify(action.payload));
       }
-      return {
-        ...state,
-        isLoggedIn: true,
+      return { ...state,isLoggedIn: true,
         user: action.payload,
         error: '',
       };
     case LOGIN_FAILURE:
-      return {
-        ...state,
-        isLoggedIn: false,
+      return {...state, isLoggedIn: false,
         user: null,
         error: action.payload,
       };
     case LOGOUT:
-      // Remove user data and login status from localStorage
       if (typeof window !== 'undefined') {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('user');
       }
-      return {
-        ...state,
+      return { ...state,
         isLoggedIn: false,
         user: null,
       };

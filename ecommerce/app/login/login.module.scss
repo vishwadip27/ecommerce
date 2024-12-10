@@ -1,0 +1,70 @@
+.loginWrapper{
+    margin: 7% auto;
+    display: flex;
+    justify-content: center;
+ }
+ .loginFormWrapper > h2 {
+     text-align: center;
+     font-weight: bold;
+     margin-bottom: 20px;
+     margin-top: 0;
+     color: #00bcff;
+ }
+ .loginFormWrapper{
+     max-width: 35vw;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+     width: 100%;
+     margin-bottom: 0;
+ }
+ .inputwrapper{
+     margin-bottom: 20px;
+     display: flex !important;
+     flex-direction: column;
+ }
+ .inputwrapper > label {
+     margin-bottom: 5px;
+     font-size: 14px;
+     color: cadetblue;
+ }
+ 
+ .inputwrapper > input{
+     width: 100%;
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     margin-top: 5px;
+ }
+ .btn{
+     color: white;
+     padding: 7px 17px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s ease-in-out;
+     margin-right: 10px;
+ }
+ .btnWrapper{
+     background-color: #4CAF50;
+ }
+ .btnLogin{
+     background-color: #4c9baf;
+ }
+ .inputwrapper > input:focus-visible{
+     outline: none;
+ }
+ .signUpTxtclick{
+     color: #4c9baf;
+     cursor: pointer;
+     transition: color 0.3s ease-in-out;
+     text-decoration: underline;
+ }
+ .errorMessage{
+    color: red;
+    margin-top: 9px;
+    font-size: 12px;
+ }
+ .errorMessage >svg{
+    display: none;
+ }

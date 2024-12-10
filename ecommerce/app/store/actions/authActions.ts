@@ -1,4 +1,4 @@
-import { SET_FORM_DATA, RESET_FORM_DATA, SET_ERROR, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from '../actions/authTypes';
+import { SET_FORM_DATA, RESET_FORM_DATA, SET_ERROR, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, CLEAR_ERROR } from '../actions/authTypes';
 
 export const setFormData = (payload: { [key: string]: string }) => ({
   type: SET_FORM_DATA,
@@ -26,4 +26,7 @@ export const loginFailure = (error: string) => ({
 
 export const logout = () => ({
   type: LOGOUT,
+});
+export const clearError = () => ({
+  type: CLEAR_ERROR,
 });
