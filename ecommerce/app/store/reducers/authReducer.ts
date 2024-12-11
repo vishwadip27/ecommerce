@@ -32,39 +32,20 @@ const authReducer = (state = initialState, action: any): AuthState => {
   switch (action.type) {
     case SET_FORM_DATA:
       return {...state, formData: { ...state.formData, ...action.payload } };
-      case RESET_FORM_DATA:
-        return {
-          ...state,
-          formData: { ...initialState.formData },
-          error: '',
-        };
+    case RESET_FORM_DATA:
+      return { ...state, formData: { ...initialState.formData },error: '', };
     case SET_ERROR:
       return { ...state, error: action.payload};
     case CLEAR_ERROR:
       return { ...state, error: '' };
     case LOGIN_SUCCESS:
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('user', JSON.stringify(action.payload));
-      }
-      return { ...state,isLoggedIn: true,
-        user: action.payload,
-        error: '',
-      };
+      if (typeof window !== 'undefined') { localStorage.setItem('isLoggedIn', 'true'); localStorage.setItem('user', JSON.stringify(action.payload)); }
+      return { ...state,isLoggedIn: true, user: action.payload, error: '' };
     case LOGIN_FAILURE:
-      return {...state, isLoggedIn: false,
-        user: null,
-        error: action.payload,
-      };
+      return {...state, isLoggedIn: false, user: null, error: action.payload };
     case LOGOUT:
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('user');
-      }
-      return { ...state,
-        isLoggedIn: false,
-        user: null,
-      };
+      if (typeof window !== 'undefined') { localStorage.removeItem('isLoggedIn'); localStorage.removeItem('user'); }
+      return { ...state, isLoggedIn: false, user: null, };
     default:
       return state;
   }
