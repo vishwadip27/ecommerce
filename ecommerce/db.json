@@ -2,38 +2,43 @@
     "products": [
       {
         "id": 1,
-        "title": "Product 1",
+        "name": "Product 1",
         "description": "Description of Product 1",
         "price": 100,
-        "image": "/images/earbuds.jpeg"
+        "image": "/images/earbuds.jpeg",
+        "quantity": "1"
       },
       {
         "id": 2,
-        "title": "Product 2",
+        "name": "Product 2",
         "description": "Description of Product 2",
         "price": 200,
-        "image": "/images/earbuds.jpeg"
+        "image": "/images/earbuds.jpeg",
+        "quantity": "2"
       },
       {
         "id": 3,
-        "title": "Product 3",
+        "name": "Product 3",
         "description": "Description of Product 3",
         "price": 300,
-        "image": "/images/earbuds.jpeg"
+        "image": "/images/earbuds.jpeg",
+        "quantity": "3"
       },
       {
         "id": 4,
-        "title": "Product 4",
+        "name": "Product 4",
         "description": "Description of Product 4",
         "price": 400,
-        "image": "/images/earbuds.jpeg"
+        "image": "/images/earbuds.jpeg",
+        "quantity": "4"
       },
       {
         "id": 5,
-        "title": "Product 5",
+        "name": "Product 5",
         "description": "Description of Product 5",
         "price": 500,
-        "image": "/images/earbuds.jpeg"
+        "image": "/images/earbuds.jpeg",
+        "quantity": "5"
       }
     ],
     "users": [

@@ -7,10 +7,11 @@ import productStyle from './products.module.scss'
 
 interface Product {
   id: number;
-  title: string;
+  name: string
   description: string;
   price: number;
   image: string;
+  quantity: number;
 }
 
 const Products = () => {
@@ -38,13 +39,16 @@ const Products = () => {
       {products.map(product => (
         <div key={product.id} className={`w-3 p-3 flex flex-column justify-content-center ${productStyle.productDetail}`} >
           <div className={productStyle.productImageWrapper}>
-            <img src={product.image} alt={product.title} className={productStyle.productImage}/>
+            <img src={product.image} alt={product.name} className={productStyle.productImage}/>
           </div>
           <div className=''>
-            <h3>{product.title}</h3>
+            <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p>${product.price}</p>
-            <Button label="Add to Cart"  onClick={() => handleAddToCart(product)} />
+            <div>
+              <Button label="View Details" icon="pi pi-info-circle" />
+              <Button label="Add to Cart"  icon="pi pi-shopping-cart" onClick={() => handleAddToCart(product)} />
+            </div>
           </div>
         </div>
       ))}

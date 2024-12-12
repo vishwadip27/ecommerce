@@ -29,6 +29,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Force apply styles using !important
+      document.body.style.setProperty('overflow', 'auto', 'important');
+      document.body.style.setProperty('margin', '0', 'important');
+      document.body.style.setProperty('padding', '0', 'important'); // 
+    }
+  }, []); 
   const pathname = usePathname();
   const showHeaderFooter = pathname !== "/login" && pathname !== "/signup"; 
 
@@ -42,9 +50,13 @@ export default function RootLayout({
       if (isLoggedIn && user) {
         store.dispatch({ type: LOGIN_SUCCESS, payload: user });
       }
-      setIsHydrated(true);
+      setIsHydrated(true); 
+      document.body.style.setProperty('overflow', 'auto', 'important');
+      document.body.style.setProperty('margin', '0', 'important');
+      document.body.style.setProperty('padding', '0', 'important'); // 
     }
   }, []);
+
 
   if (!isHydrated) {
     return null; 
@@ -52,7 +64,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body style={{ margin: 0, padding: 0, overflow: 'auto' }}>
         <Provider store={store}>
           {showHeaderFooter && <Header />} 
           <main>{children}</main>

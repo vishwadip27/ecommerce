@@ -1,61 +1,109 @@
-
-
 .page {
-    padding: 0;
-    margin: 0;
-  }
+  padding: 0;
+  margin: 0;
+}
 
-  .banner {
-    width: 100%;
-    background-position: 100% 100%;
-    padding: 200px 0;
-    background-image: url('/images/bannner.jfif'); 
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: white;
-    text-align: center;
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: url('/images/banner1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  overflow: hidden; 
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
+  z-index: 0;
+}
+
+.bannerContent {
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out; 
+}
+
+.banner h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: slideInFromLeft 1.2s ease-in-out; 
+}
+
+.banner p {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.shopNowBtn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #263248;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3); 
+  transition: all 0.3s ease-in-out;
+  animation: bounceIn 2s ease-in-out;
+}
+
+.shopNowBtn:hover {
+  background-color: #e64a43;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5); 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .bannerContent {
-    z-index: 1;
+  to {
+    opacity: 1;
   }
-  .banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); 
-    z-index: 0; 
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
   }
-  
-  .banner h1 {
-    font-size: 3rem;
-    margin: 0;
-    padding: 0;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .banner p {
-    font-size: 1.5rem;
-    margin: 10px 0;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  
-  .shopNowBtn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #ff6f61;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
   }
-  
-  .shopNowBtn:hover {
-    background-color: #e64a43;
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
+}

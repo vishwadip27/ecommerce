@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client'
 import { Button } from 'primereact/button';
 import styles from './page.module.css';

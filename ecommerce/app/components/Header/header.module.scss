@@ -1,19 +1,27 @@
 .navbarWrapper {
-    background-color: #f9fafb;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    padding: 0 16px;
   }
   
   .navbarWrapperData {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1290px;
+    width: 100%;
+    margin: 0 auto;
   }
-
+  .logo {
+    max-width: 165px;
+    height: 120px;
+  }
   .logoWrapper {
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
+    width: 50%;
+    text-align: center;
   }
   .navUl {
     text-align: left;
@@ -37,13 +45,15 @@
   }
   
   .liList:hover {
-    background-color: #dfe6f0;
+    // background-color: #dfe6f0;
   }
   
   .navActions {
     display: flex;
     align-items: center;
     gap: 12px;
+    width: 25%;
+    justify-content: flex-end;
   }
   
   .actionButton {
@@ -128,4 +138,5 @@
   }
   .toggleIcon{
     cursor: pointer;
+    width: 25%;
   }

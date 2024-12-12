@@ -1,0 +1,86 @@
+.footerWrapper {
+    background-color: #fff;
+    padding: 50px 0px 0 0;
+  }
+  
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 0px;
+    box-sizing: border-box;
+    min-width: 300px;
+  }
+  .quickLinkCol{
+    div{
+      flex-direction: column;
+      display: flex;
+      .link {
+        margin: 5px 0;
+        font-size: 1rem;
+        color: #555;
+        text-decoration: none; /* Removes underline */
+        transition: color 0.3s;
+      }
+      
+      .link:hover {
+        color: #000; /* Change color on hover */
+      }
+  }
+  }
+  
+  .logoSection {
+    text-align: left;
+  }
+  
+  .logo {
+    max-width: 100px;
+  }
+  
+  .contactSection, .socialMediaSection {
+    text-align: left;
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .socialIcons a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #555;
+    transition: color 0.3s;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .socialIcons a:hover {
+    color: #000; /* Change the color on hover */
+  }
+  
+  .copyrightSection {
+    text-align: center;
+    padding: 20px;
+
+  }
+  .copyrightSection {
+    p{
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footerContent {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
