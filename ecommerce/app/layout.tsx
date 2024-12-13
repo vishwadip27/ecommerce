@@ -1,62 +1,61 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import localFont from "next/font/local";
-import 'primereact/resources/primereact.min.css';
-import 'primeflex/primeflex.css';
-import "primeicons/primeicons.css";
 import { usePathname } from "next/navigation";
 import { Provider } from "react-redux";
+import store from "./store";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import store from "./store";
 import { LOGIN_SUCCESS } from './store/actions/authTypes';
-
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Head from 'next/head';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Force apply styles using !important
-      document.body.style.setProperty('overflow', 'auto', 'important');
-      document.body.style.setProperty('margin', '0', 'important');
-      document.body.style.setProperty('padding', '0', 'important'); // 
-    }
-  }, []); 
   const pathname = usePathname();
-  const showHeaderFooter = pathname !== "/login" && pathname !== "/signup"; 
+  const showHeaderFooter = pathname !== "/login" && pathname !== "/signup";
 
-  const [isHydrated, setIsHydrated] = useState(false); 
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const body = document.body;
+      const bodyStyle = body.style;
+
+      const removeInlineStyles = () => {
+        bodyStyle.removeProperty('overflow');
+        bodyStyle.removeProperty('padding');
+        bodyStyle.removeProperty('margin');
+      };
+
+      const applyStyles = () => {
+        bodyStyle.setProperty('overflow', 'auto', 'important');
+        bodyStyle.setProperty('padding', '0', 'important');
+        bodyStyle.setProperty('margin', '0', 'important');
+      };
+    
+      removeInlineStyles();
+      applyStyles();
+      const interval = setInterval(() => {
+        if (bodyStyle.overflow !== 'auto') {
+          applyStyles(); 
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
+
       const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
       const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : null; 
 
       if (isLoggedIn && user) {
         store.dispatch({ type: LOGIN_SUCCESS, payload: user });
       }
-      setIsHydrated(true); 
-      document.body.style.setProperty('overflow', 'auto', 'important');
-      document.body.style.setProperty('margin', '0', 'important');
-      document.body.style.setProperty('padding', '0', 'important'); // 
+
+      setIsHydrated(true);
     }
   }, []);
-
 
   if (!isHydrated) {
     return null; 
@@ -64,10 +63,21 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-        <body style={{ margin: 0, padding: 0, overflow: 'auto' }}>
+      <Head>
+        <style>
+          {`
+            body {
+              overflow: auto !important;
+              margin: 0 !important;
+              padding: 0 !important;
+            }
+          `}
+        </style>
+      </Head>
+      <body>
         <Provider store={store}>
-          {showHeaderFooter && <Header />} 
-          <main>{children}</main>
+          {showHeaderFooter && <Header />}
+          {children}
           {showHeaderFooter && <Footer />}
         </Provider>
       </body>

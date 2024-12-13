@@ -1,0 +1,99 @@
+.container {
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #333;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    width: calc(25% - 20px); 
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  @media (max-width: 1024px) {
+    .card {
+      width: calc(33.333% - 20px); 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      width: 100%; 
+    }
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .wishlistImageWrapper{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+    object-position: top center;
+  }
+  
+  .cardContent {
+    padding: 16px;
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111;
+  }
+  
+  .cardDescription {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  
+  .cardPrice {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 16px;
+  }
+  
+  .emptyState {
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+  }
+  

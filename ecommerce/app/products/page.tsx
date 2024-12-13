@@ -1,13 +1,16 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/actions/carttActions';
+import { addToWishlist } from '../store/actions/wishlistActions';
 import { Button } from 'primereact/button';
-import productStyle from './products.module.scss'
+import { useRouter } from 'next/navigation';
+import productStyle from './products.module.scss';
+import { RootState } from '../store/reducers';
 
 interface Product {
   id: number;
-  name: string
+  name: string;
   description: string;
   price: number;
   image: string;
@@ -17,6 +20,7 @@ interface Product {
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,31 +32,37 @@ const Products = () => {
   }, []);
 
   const handleAddToCart = (product: Product) => {
-    console.log("cartAddToCart", product);
     dispatch(addToCart(product));
+  };
+
+  const handleAddToWishlist = (product: any) => {
+    dispatch(addToWishlist(product)); 
+  };
+
+  const handleViewDetails = (id: number) => {
+    router.push(`/product/${id}`);
   };
 
   return (
     <div className={productStyle.productMainPage}>
-      <h1 className='text-center my-5'>Our Products</h1>
+      <h1 className="text-center my-5">Our Products</h1>
       <div className={`flex flex-wrap gap-2 ${productStyle.productWrapper}`}>
-      {products.map(product => (
-        <div key={product.id} className={`w-3 p-3 flex flex-column justify-content-center ${productStyle.productDetail}`} >
-          <div className={productStyle.productImageWrapper}>
-            <img src={product.image} alt={product.name} className={productStyle.productImage}/>
-          </div>
-          <div className=''>
+        {products.map((product) => (
+          <div key={product.id} className={`sm:w-1/3 md:w-1/4 p-3 ${productStyle.productDetail}`}>
+            <div className={productStyle.productImageWrapper}>
+              <img src={product.image} alt={product.name} className={productStyle.productImage} />
+            </div>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p>${product.price}</p>
             <div>
-              <Button label="View Details" icon="pi pi-info-circle" />
-              <Button label="Add to Cart"  icon="pi pi-shopping-cart" onClick={() => handleAddToCart(product)} />
+              <Button label="View Details" icon="pi pi-info-circle" onClick={() => handleViewDetails(product.id)} />
+              <Button label="Add to Cart" icon="pi pi-shopping-cart" onClick={() => handleAddToCart(product)} />
+              <Button label="Add to Wishlist" icon="pi pi-heart" onClick={() => handleAddToWishlist(product)} />
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };

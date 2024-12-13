@@ -13,26 +13,25 @@
 html,
 body {
   max-width: 100vw;
-  /* overflow-x: hidden; */
   margin: 0;
-  overflow: auto !important;
+  overflow: auto !important; /* Ensure overflow is auto for both html and body */
 }
 
 body {
-  margin: 0 !important;
   padding: 0 !important;
-  overflow: auto;
+  overflow: auto !important; /* Force overflow to auto, with !important */
 }
+
+/* Ensure inline styles with 'overflow: hidden' are overridden */
 body[style*="overflow: hidden;"] {
   overflow: auto !important;
 }
+
+/* Apply box-sizing globally */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-body.__variable_1e4310.__variable_c3aa02 {
-  overflow: auto !important;
 }
 a {
   color: inherit;

@@ -44,15 +44,11 @@
     transition: background-color 0.2s;
   }
   
-  .liList:hover {
-    // background-color: #dfe6f0;
-  }
-  
+
   .navActions {
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 25%;
     justify-content: flex-end;
   }
   
@@ -113,10 +109,6 @@
         font-size: 1.2rem;
         cursor: pointer;
         transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #dfe6f0;
-        }
       }
     }
   
@@ -140,3 +132,46 @@
     cursor: pointer;
     width: 25%;
   }
+  .cartBadge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+  }
+  
+  .actionButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .searchBarData i {
+    padding-left: 10px;
+  }
+  
+
+  
+  @media (max-width: 768px) {
+    .logoWrapper {
+      font-size: 1.2rem;
+    }
+    
+    .navActions {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .searchBar {
+      width: 60%;
+    }
+  }
+  
