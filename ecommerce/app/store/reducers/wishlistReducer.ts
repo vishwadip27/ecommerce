@@ -12,7 +12,7 @@ const wishListReducer = (state = initialState, action: any): wishListSate => {
   switch (action.type) {
     case ADD_TO_WISHLIST:
       const updatedWishlistAdd = [...state.wishListProducts, action.payload];
-      console.log("Current Wishlist State after ADD_TO_WISHLIST:", updatedWishlistAdd);
+      console.log("Current Wishlist State after ADD_TO_WISHLIST: updatedWishlistAdd =>", updatedWishlistAdd);
       return {
         ...state,
         wishListProducts: updatedWishlistAdd,

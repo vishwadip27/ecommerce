@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Message } from 'primereact/message';
-import loginStyle from './login.module.scss'
+import loginStyle from './login.module.scss';
 
 const Login = () => {
   const formData = useSelector((state: RootState) => state.auth.formData);
@@ -19,16 +19,18 @@ const Login = () => {
   const router = useRouter();
   const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (isLoggedIn) router.push('/');
-    dispatch(clearError());
-  }, [dispatch, router]);
-  
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-  const handleChange = (name: string, value: string) => {
-    dispatch(setFormData({ [name]: value }));
-    dispatch(clearError());
+  const validatePassword = (password: string) => {
+    if (!password) {
+      dispatch(setError('Password is required'));
+      return false;
+    }
+    if (!passwordRegex.test(password)) {
+      dispatch(setError('Password must be at least 8 characters long , special character and contain both letters and numbers.'));
+      return false;
+    }
+    return true;
   };
 
   const validateForm = () => {
@@ -42,7 +44,21 @@ const Login = () => {
       dispatch(setError('Invalid email format'));
       return false;
     }
+    if (!validatePassword(password)) {
+      return false;
+    }
     return true;
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (isLoggedIn) router.push('/');
+    dispatch(clearError());
+  }, [dispatch, router]);
+
+  const handleChange = (name: string, value: string) => {
+    dispatch(setFormData({ [name]: value }));
+    dispatch(clearError());
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -54,7 +70,7 @@ const Login = () => {
         (u: any) => u.email === formData.email && u.password === formData.password
       );
       if (user) {
-        dispatch(loginSuccess({ email: user.email }));
+        dispatch(loginSuccess({ email: user.email , password: user.password }));
         router.push('/');
       } else {
         dispatch(loginFailure('Invalid email or password'));

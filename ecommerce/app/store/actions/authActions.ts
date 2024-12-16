@@ -14,7 +14,7 @@ export const setError = (error: string) => ({
   payload: error,
 });
 
-export const loginSuccess = (user: { email: string }) => ({
+export const loginSuccess = (user: { email: string, password: string }) => ({
   type: LOGIN_SUCCESS,
   payload: user,
 });

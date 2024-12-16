@@ -48,17 +48,19 @@ const Products = () => {
       <h1 className="text-center my-5">Our Products</h1>
       <div className={`flex flex-wrap gap-2 ${productStyle.productWrapper}`}>
         {products.map((product) => (
-          <div key={product.id} className={`sm:w-1/3 md:w-1/4 p-3 ${productStyle.productDetail}`}>
+          <div key={product.id} className={`p-col-12 p-md-6 p-lg-4 p-xl-3 p-p-3 p-3 ${productStyle.productDetail}`}>
             <div className={productStyle.productImageWrapper}>
               <img src={product.image} alt={product.name} className={productStyle.productImage} />
+            </div>
+            <div className={productStyle.wishlistWrapper}>
+            <Button label="" icon="pi pi-heart" onClick={() => handleAddToWishlist(product)} className={`${productStyle.btn} ${productStyle.view}`}/>
+            <Button label="" icon="pi pi-shopping-cart" onClick={() => handleAddToCart(product)} className={`${productStyle.btn} ${productStyle.cart}`}/>
             </div>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p>${product.price}</p>
-            <div>
-              <Button label="View Details" icon="pi pi-info-circle" onClick={() => handleViewDetails(product.id)} />
-              <Button label="Add to Cart" icon="pi pi-shopping-cart" onClick={() => handleAddToCart(product)} />
-              <Button label="Add to Wishlist" icon="pi pi-heart" onClick={() => handleAddToWishlist(product)} />
+            <div className={productStyle.viewDetailWrapper}>
+              <Button label="View Details" icon="pi pi-info-circle" onClick={() => handleViewDetails(product.id)} className={`${productStyle.btn} ${productStyle.view}`}/>
             </div>
           </div>
         ))}

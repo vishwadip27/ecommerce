@@ -19,9 +19,13 @@ const Wishlist = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>My Wishlist</h1>
       {wishListProducts.length > 0 ? (
-        <div className={styles.grid}>
+        <div className={styles.wishlistDataWrapper}>
           {wishListProducts.map((product) => (
+            
             <div key={product.id} className={styles.card}>
+              <div className={styles.removeBtnWrapper}>
+                <Button label=""  icon="pi pi-trash" className={styles.btn} onClick={() => handleRemove(product.id)}  />
+              </div>
               <div className={styles.wishlistImageWrapper}>
                  <img src={product.image || '/placeholder-image.png'}  alt={product.name} className={styles.cardImage} />
               </div>
@@ -29,7 +33,6 @@ const Wishlist = () => {
                 <h3 className={styles.cardTitle}>{product.name}</h3>
                 <p className={styles.cardDescription}>{product.description}</p>
                 <p className={styles.cardPrice}>${product.price}</p>
-                <Button label="Remove"  icon="pi pi-trash" className="p-button-danger" onClick={() => handleRemove(product.id)} />
               </div>
             </div>
           ))}

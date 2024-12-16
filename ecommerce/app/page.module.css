@@ -68,9 +68,9 @@
 }
 
 .shopNowBtn:hover {
-  background-color: #e64a43;
+  background-color: #263248;
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.5); 
+  box-shadow: 0 8px 20px #26324882; 
 }
 
 @keyframes fadeIn {

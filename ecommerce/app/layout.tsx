@@ -1,13 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import localFont from "next/font/local";
+import 'primereact/resources/primereact.min.css';
+import 'primeflex/primeflex.css';
+import "primeicons/primeicons.css";
 import { usePathname } from "next/navigation";
 import { Provider } from "react-redux";
-import store from "./store";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import store from "./store";
 import { LOGIN_SUCCESS } from './store/actions/authTypes';
-import Head from 'next/head';
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export default function RootLayout({
   children,
@@ -24,27 +39,17 @@ export default function RootLayout({
       const body = document.body;
       const bodyStyle = body.style;
 
-      const removeInlineStyles = () => {
-        bodyStyle.removeProperty('overflow');
-        bodyStyle.removeProperty('padding');
-        bodyStyle.removeProperty('margin');
-      };
+      bodyStyle.removeProperty('overflow');
+      bodyStyle.removeProperty('padding');
+      bodyStyle.removeProperty('margin');
 
-      const applyStyles = () => {
-        bodyStyle.setProperty('overflow', 'auto', 'important');
-        bodyStyle.setProperty('padding', '0', 'important');
-        bodyStyle.setProperty('margin', '0', 'important');
-      };
-    
-      removeInlineStyles();
-      applyStyles();
-      const interval = setInterval(() => {
-        if (bodyStyle.overflow !== 'auto') {
-          applyStyles(); 
-        } else {
-          clearInterval(interval);
-        }
-      }, 100);
+      bodyStyle.overflow = 'auto'; 
+      bodyStyle.padding = '0';      
+      bodyStyle.margin = '0';       
+
+      body.style.overflowX = 'auto';
+
+      console.log('Overflow and padding styles applied:', bodyStyle);
 
       const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
       const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : null; 
@@ -63,17 +68,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <style>
-          {`
-            body {
-              overflow: auto !important;
-              margin: 0 !important;
-              padding: 0 !important;
-            }
-          `}
-        </style>
-      </Head>
       <body>
         <Provider store={store}>
           {showHeaderFooter && <Header />}

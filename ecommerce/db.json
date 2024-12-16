@@ -1,98 +1,112 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Product 1",
-        "description": "Description of Product 1",
-        "price": 100,
-        "image": "/images/earbuds.jpeg",
-        "quantity": "1"
-      },
-      {
-        "id": 2,
-        "name": "Product 2",
-        "description": "Description of Product 2",
-        "price": 200,
-        "image": "/images/earbuds.jpeg",
-        "quantity": "2"
-      },
-      {
-        "id": 3,
-        "name": "Product 3",
-        "description": "Description of Product 3",
-        "price": 300,
-        "image": "/images/earbuds.jpeg",
-        "quantity": "3"
-      },
-      {
-        "id": 4,
-        "name": "Product 4",
-        "description": "Description of Product 4",
-        "price": 400,
-        "image": "/images/earbuds.jpeg",
-        "quantity": "4"
-      },
-      {
-        "id": 5,
-        "name": "Product 5",
-        "description": "Description of Product 5",
-        "price": 500,
-        "image": "/images/earbuds.jpeg",
-        "quantity": "5"
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "firstname": "John",
-        "lastname": "Doe",
-        "email": "test@test.com",
-        "password": "admin",
-        "city": "New York",
-        "state": "NY",
-        "gender": "Male",
-        "phoneNumber": "1234567890"
-      },
-      {
-        "id": "5f71",
-        "firstname": "",
-        "lastname": "",
-        "email": "demo@demo.com",
-        "password": "admin",
-        "confirmPassword": "admin",
-        "city": "",
-        "state": "",
-        "gender": "",
-        "phoneNumber": ""
-      },
-      {
-        "id": "6eff",
-        "firstname": "",
-        "lastname": "",
-        "email": "testdata@test.com",
-        "password": "admin",
-        "confirmPassword": "admin",
-        "city": "",
-        "state": "",
-        "phoneNumber": ""
-      },
-      {
-        "id": "cce5",
-        "firstname": "",
-        "lastname": "",
-        "email": "test3@test.com",
-        "password": "admin",
-        "confirmPassword": "admin",
-        "city": "",
-        "state": "",
-        "phoneNumber": ""
-      }
-    ],
-    "cart": [
-      {
-        "id": 1,
-        "productId": 1,
-        "quantity": 2
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "description": "Description of Product 1",
+      "price": 100,
+      "image": "/images/earbuds.jpeg",
+      "quantity": "1"
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "description": "Description of Product 2",
+      "price": 200,
+      "image": "/images/earbuds.jpeg",
+      "quantity": "2"
+    },
+    {
+      "id": "3",
+      "name": "Product 3",
+      "description": "Description of Product 3",
+      "price": 300,
+      "image": "/images/earbuds.jpeg",
+      "quantity": "3"
+    },
+    {
+      "id": "4",
+      "name": "Product 4",
+      "description": "Description of Product 4",
+      "price": 400,
+      "image": "/images/earbuds.jpeg",
+      "quantity": "4"
+    },
+    {
+      "id": "5",
+      "name": "Product 5",
+      "description": "Description of Product 5",
+      "price": 500,
+      "image": "/images/earbuds.jpeg",
+      "quantity": "5"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstname": "John",
+      "lastname": "Doe",
+      "email": "test@test.com",
+      "password": "admin",
+      "city": "New York",
+      "state": "NY",
+      "gender": "Male",
+      "phoneNumber": "1234567890"
+    },
+    {
+      "id": "5f71",
+      "firstname": "",
+      "lastname": "",
+      "email": "demo@demo.com",
+      "password": "admin",
+      "confirmPassword": "admin",
+      "city": "",
+      "state": "",
+      "gender": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": "6eff",
+      "firstname": "",
+      "lastname": "",
+      "email": "testdata@test.com",
+      "password": "admin",
+      "confirmPassword": "admin",
+      "city": "",
+      "state": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": "cce5",
+      "firstname": "",
+      "lastname": "",
+      "email": "test3@test.com",
+      "password": "admin",
+      "confirmPassword": "admin",
+      "city": "",
+      "state": "",
+      "phoneNumber": ""
+    },
+    {
+      "id": "b5e1",
+      "email": "test@test.com",
+      "password": "Admin@12"
+    },
+    {
+      "id": "7caf",
+      "firstname": "Vishwadip",
+      "lastname": "Nanavati",
+      "email": "vd@test.com",
+      "password": "Admin@123",
+      "confirmPassword": "Admin@123",
+      "phoneNumber": "9898989891"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+}

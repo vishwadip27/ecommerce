@@ -42,10 +42,8 @@ const cartReducer = (state = initialState, action: any): CartState => {
               : item
           ).filter(item => item.quantity > 0),
         };
-      
     default:
       return state;
-
   }
 };
 

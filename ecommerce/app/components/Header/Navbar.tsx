@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import navStyle from "./header.module.scss";
@@ -19,6 +19,7 @@ const Navbar = () => {
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const wishListProducts = useSelector((state: RootState) => state.whistlist.wishListProducts); 
   const wishListCount = wishListProducts.length;
+  const pathname = usePathname();
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -105,7 +106,9 @@ const Navbar = () => {
         </div>
         <div className={navStyle.navActions}>
           <Button icon="pi pi-heart" className={`p-button-rounded ${navStyle.actionButton}`} onClick={() => handleMenuItemClick("/wishlist")} >
-            {wishListCount > 0 && <span className={navStyle.cartBadge}>{wishListCount}</span>}
+          {pathname !== "/wishlist" && wishListCount > 0 && (
+          <span className={navStyle.cartBadge}>{wishListCount}</span>
+        )}
           </Button>
           <Button icon="pi pi-shopping-cart" className={`p-button-rounded ${navStyle.actionButton}`} onClick={() => handleMenuItemClick("/cart")}>
             {cartCount > 0 && <span className={navStyle.cartBadge}>{cartCount}</span>}
@@ -114,8 +117,10 @@ const Navbar = () => {
             <i className="pi pi-search" />
             <InputText placeholder="Search..." className={navStyle.searchBar} />
           </span>
-          {isLoggedIn && (
-            <Button label="Logout" className={`p-button-danger ${navStyle.logoutButton}`} onClick={handleLogout} />
+          {isLoggedIn ? (
+            <Button label="Logout" onClick={handleLogout} className={navStyle.btn}/>
+          ) : (
+            <Button label="Login" onClick={() => router.push("/login")} className={navStyle.btn}/>
           )}
         </div>
       </nav>

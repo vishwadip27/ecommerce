@@ -11,7 +11,7 @@ interface AuthState {
   };
   error: string;
   isLoggedIn: boolean;
-  user: { email: string } | null;
+  user: { email: string, password: string } | null;
 }
 
 const initialState: AuthState = {
@@ -38,9 +38,12 @@ const authReducer = (state = initialState, action: any): AuthState => {
       return { ...state, error: action.payload};
     case CLEAR_ERROR:
       return { ...state, error: '' };
-    case LOGIN_SUCCESS:
-      if (typeof window !== 'undefined') { localStorage.setItem('isLoggedIn', 'true'); localStorage.setItem('user', JSON.stringify(action.payload)); }
-      return { ...state,isLoggedIn: true, user: action.payload, error: '' };
+      case LOGIN_SUCCESS:
+        if (typeof window !== 'undefined') { 
+          localStorage.setItem('isLoggedIn', 'true'); 
+          localStorage.setItem('user', JSON.stringify(action.payload)); 
+        }
+        return { ...state, isLoggedIn: true, user: action.payload, error: '' };
     case LOGIN_FAILURE:
       return {...state, isLoggedIn: false, user: null, error: action.payload };
     case LOGOUT:

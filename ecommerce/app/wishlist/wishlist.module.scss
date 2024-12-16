@@ -12,7 +12,7 @@
     color: #333;
   }
 
-  .grid {
+  .wishlistDataWrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -29,6 +29,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
   }
   
   @media (max-width: 1024px) {
@@ -96,4 +97,21 @@
     font-size: 1rem;
     color: #888;
   }
-  
+  .removeBtnWrapper{
+    .btn{
+      padding: 10px 10px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background-color: #263248;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #26324882;
+      transition: all 0.3s ease-in-out;
+      animation: page_bounceIn__d4_jB 2s ease-in-out;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }

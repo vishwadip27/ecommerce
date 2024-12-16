@@ -45,50 +45,25 @@ const Cart = () => {
   return (
     <div className={cartStyle.cartWrapper}>
       <h1 className={cartStyle.cartTitle}>Shopping Cart</h1>
-      {cartItems.length === 0 ? (
-        <p className={cartStyle.emptyCartMessage}>Your cart is empty. Start shopping!</p>
-      ) : (
+      {cartItems.length === 0 ? ( <p className={cartStyle.emptyCartMessage}>Your cart is empty. Start shopping!</p> ) : (
         <div className={cartStyle.cartContent}>
           {cartItems.map((item) => (
             <div key={item.product.id} className={cartStyle.cartItem}>
               <div className={cartStyle.cartItemLeft}>
-                <img
-                  src={item.product.image}
-                  alt={item.product.name}
-                  className={cartStyle.productImage}
-                />
+                <img src={item.product.image} alt={item.product.name} className={cartStyle.productImage} />
               </div>
               <div className={cartStyle.cartItemCenter}>
                 <h4 className={cartStyle.productName}>{item.product.name}</h4>
                 <p className={cartStyle.productPrice}>Price: ${item.product.price}</p>
-                <div className={cartStyle.quantityActions}>
-                  <Button
-                    icon={PrimeIcons.PLUS}
-                    onClick={() => handleIncrement(item.product.id)}
-                    className="p-button-rounded p-button-success"
-                  />
+                <div className={cartStyle.quantityActions}>               
+                  <Button icon={PrimeIcons.MINUS} onClick={() => handleDecrement(item.product.id)} />
                   <span className={cartStyle.productQuantity}>{item.quantity}</span>
-                  <Button
-                    icon={PrimeIcons.MINUS}
-                    onClick={() => handleDecrement(item.product.id)}
-                    className="p-button-rounded p-button-warning"
-                  />
+                  <Button icon={PrimeIcons.PLUS} onClick={() => handleIncrement(item.product.id)} />
                 </div>
               </div>
               <div className={cartStyle.cartItemRight}>
-                <Button
-                  icon={PrimeIcons.TRASH}
-                  onClick={() => handleRemove(item.product.id)}
-                  className="p-button-rounded p-button-danger"
-                  aria-label="Remove Item"
-                />
-                
-                <Button
-                  icon={PrimeIcons.HEART}
-                  onClick={() => handleAddToWishlist(item.product)} 
-                  className="p-button-rounded p-button-secondary"
-                  aria-label="Add to Wishlist"
-                />
+                <Button icon={PrimeIcons.TRASH} onClick={() => handleRemove(item.product.id)} aria-label="Remove Item"/>
+                <Button icon={PrimeIcons.HEART} onClick={() => handleAddToWishlist(item.product)}  aria-label="Add to Wishlist" />
               </div>
             </div>
           ))}
