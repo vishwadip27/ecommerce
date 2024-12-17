@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 const Header = () => {
   return (
-    <div>
+    <div className='headerWrapper'>
         <Navbar />
     </div>
   )
