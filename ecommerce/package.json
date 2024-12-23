@@ -10,7 +10,9 @@
     "json-server": "json-server --watch db.json --port 8000",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test-notes": "npx jest Mobile.test.tsx"
+    "test-notes": "npx jest Mobile.test.tsx",
+    "test-todos": "npx jest TodoAndPhotoList.test.tsx"
+
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.4.0",
